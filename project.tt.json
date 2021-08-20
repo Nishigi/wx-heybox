@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "wx-heybox",
+  "description": "this is heybox",
+  "appid": "wx8e21d947beda93a9",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}

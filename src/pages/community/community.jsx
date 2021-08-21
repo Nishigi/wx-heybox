@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import { View, Button, Text } from '@tarojs/components'
-import { observer, inject } from 'mobx-react'
 import { AtTabs, AtTabsPane, AtGrid } from 'taro-ui'
+import Taro from '@tarojs/taro'
+import { observer, inject } from 'mobx-react'
 import './community.scss'
-
+import animal from '../../images/grid/animalparty.png'
+import bookbox from '../../images/grid/bookbox.png'
+import double from '../../images/grid/double.png'
+import genshin from '../../images/grid/genshin.png'
+import happy from '../../images/grid/happy.png'
+import mamolu from '../../images/grid/mamolu.png'
+import PCgame from '../../images/grid/PCgame.png'
+import pretty from '../../images/grid/pretty.png'
+import riceday from '../../images/grid/riceday.png'
+import sign from '../../images/grid/sign.png'
+import Switch from '../../images/grid/Switch.png'
 export default () => {
     const [current, setCurrent] = useState(0)
     const tabList = [
@@ -13,6 +24,47 @@ export default () => {
         { title: '热门手游' },
         { title: '单机热游' }
     ]
+    var recom = [
+        {
+            image: PCgame,
+            iconInfo: 1
+        },
+        { image: pretty },
+        { image: riceday },
+        { image: sign },
+        { image: double },
+        { image: genshin },
+        { image: Switch }
+    ]
+    var boxfriend = [
+        { image: PCgame },
+        { image: animal },
+        { image: bookbox },
+        { image: sign },
+        { image: happy },
+        { image: genshin }
+    ]
+    var online = [
+        { image: PCgame },
+        { image: mamolu },
+        { image: sign },
+        { image: double }
+    ]
+    var hotgame = [
+        { image: PCgame },
+        { image: pretty },
+        { image: sign },
+        { image: double },
+        { image: genshin }
+    ]
+    var single = [
+        { image: Switch },
+        { image: pretty },
+        { image: sign },
+        { image: genshin },
+        { image: animal }
+    ]
+
     function handleClick(value) {
         setCurrent(value)
     }
@@ -24,163 +76,48 @@ export default () => {
                 onClick={handleClick}
             >
                 <AtTabsPane current={current} index={0} >
-                    <AtGrid data={
-                        [
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                                value: '领取中心',
-                                style: 'background:red'
-                            },
-                            {
-                                image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                                value: '找折扣'
-                            },
-                            {
-                                image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                                value: '领会员'
-                            },
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                                value: '新品首发'
-                            },
-                            {
-                                image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-                                value: '领京豆'
-                            },
-                            {
-                                image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-                                value: '手机馆'
+
+                    <AtGrid
+                        hasBorder={false}
+                        data={recom}
+                        onClick={e => {
+                            if (e.iconInfo === 1) {
+                                Taro.navigateTo({
+                                    url: '/pages/community-info/community-info',
+                                    events: {
+                                        // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+                                        acceptDataFromOpenedPage: function (data) {
+                                            console.log(data)
+                                        },
+                                        someEvent: function (data) {
+                                            console.log(data)
+                                        }
+                                    },
+                                    success: function (res) {
+                                        // 通过eventChannel向被打开页面传送数据
+                                        res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
+                                    }
+                                })
                             }
-                        ]
-                    } />
+                        }}
+                    />
+
                 </AtTabsPane>
                 <AtTabsPane current={current} index={1}>
-
-                    <AtGrid data={
-                        [
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                                value: '领取中心'
-                            },
-                            {
-                                image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                                value: '找折扣'
-                            },
-                            {
-                                image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                                value: '领会员'
-                            },
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                                value: '新品首发'
-                            },
-                            {
-                                image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-                                value: '领京豆'
-                            },
-                            {
-                                image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-                                value: '手机馆'
-                            }
-                        ]
-                    } />
-
+                    <AtGrid
+                        hasBorder={false} data={boxfriend} />
                 </AtTabsPane>
                 <AtTabsPane current={current} index={2}>
-
-                    <AtGrid data={
-                        [
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                                value: '领取中心'
-                            },
-                            {
-                                image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                                value: '找折扣'
-                            },
-                            {
-                                image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                                value: '领会员'
-                            },
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                                value: '新品首发'
-                            },
-                            {
-                                image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-                                value: '领京豆'
-                            },
-                            {
-                                image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-                                value: '手机馆'
-                            }
-                        ]
-                    } />
-
+                    <AtGrid
+                        hasBorder={false} data={online} />
                 </AtTabsPane>
                 <AtTabsPane current={current} index={3}>
-
-                    <AtGrid data={
-                        [
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                                value: '领取中心'
-                            },
-                            {
-                                image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                                value: '找折扣'
-                            },
-                            {
-                                image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                                value: '领会员'
-                            },
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                                value: '新品首发'
-                            },
-                            {
-                                image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-                                value: '领京豆'
-                            },
-                            {
-                                image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-                                value: '手机馆'
-                            }
-                        ]
-                    } />
-
+                    <AtGrid
+                        hasBorder={false} data={hotgame} />
                 </AtTabsPane>
                 <AtTabsPane current={current} index={4}>
-
-                    <AtGrid data={
-                        [
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                                value: '领取中心'
-                            },
-                            {
-                                image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                                value: '找折扣'
-                            },
-                            {
-                                image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                                value: '领会员'
-                            },
-                            {
-                                image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                                value: '新品首发'
-                            },
-                            {
-                                image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
-                                value: '领京豆'
-                            },
-                            {
-                                image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
-                                value: '手机馆'
-                            }
-                        ]
-                    } />
-
+                    <AtGrid
+                        hasBorder={false} data={single} />
                 </AtTabsPane>
             </AtTabs>
         </View >

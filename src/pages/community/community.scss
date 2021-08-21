@@ -19,9 +19,12 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     height:500px;
-    .titem{
-        background-color: pink;
-        width: 190rpx;
-        height: 190rpx;
-    }
+    
+}
+.at-grid__flex .content-inner__img {
+    width: 240rpx;
+    height: 240rpx;
+}
+.at-tabs-pane {
+    margin-top: 20px;
 }

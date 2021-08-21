@@ -2,7 +2,9 @@ export default {
   pages: [
     'pages/news/news',
     'pages/index/index',
-    'pages/community/community'
+    'pages/community/community',
+    'pages/community-info/community-info',
+    'pages/article/article'
   ],
   window: {
     backgroundTextStyle: 'light',

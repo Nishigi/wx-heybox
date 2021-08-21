@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 import { View, Button, Text, Swiper, SwiperItem, Image } from '@tarojs/components'
 import { observer, inject } from 'mobx-react'
 import { AtTabs, AtTabsPane, AtList, AtListItem } from 'taro-ui'
-import './news.scss'
-import s1 from '../../images/swiper/1.png'
-import s2 from '../../images/swiper/2.png'
-import s3 from '../../images/swiper/3.png'
+import './article.scss'
+
 
 export default () => {
-    const [current, setCurrent] = useState(0)
+    const [current, setCurrent] = useState(1)
     const tabList = [
         { title: '新闻' },
         { title: '社区' }
@@ -25,31 +23,6 @@ export default () => {
             >
                 {/* 新闻模块 */}
                 <AtTabsPane current={current} index={0} >
-                    <Swiper
-                        className='test-h'
-                        indicatorColor='#999'
-                        indicatorActiveColor='#333'
-                        circular
-                        indicatorDots
-                        interval={3000}
-                        autoplay
-                    >
-                        <SwiperItem>
-                            <View className='demo-text-1'>
-                                <Image style='width:750rpx;height:300rpx' src={s1} />
-                            </View>
-                        </SwiperItem>
-                        <SwiperItem>
-                            <View className='demo-text-2'>
-                                <Image style='width:750rpx;height:300rpx' src={s2} />
-                            </View>
-                        </SwiperItem>
-                        <SwiperItem>
-                            <View className='demo-text-3'>
-                                <Image style='width:750rpx;height:300rpx' src={s3} />
-                            </View>
-                        </SwiperItem>
-                    </Swiper>
                     <View className='alist'>
                         <AtList>
                             <AtListItem

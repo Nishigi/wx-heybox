@@ -1,0 +1,20 @@
+.at-tabs__header{
+    margin-bottom: 1px;
+}
+
+.at-tabs__item {
+    color:#cdcdcd;
+}
+.at-tabs__item--active {
+    color: black;
+}
+.at-tabs__item-underline {
+    background-color: black;
+
+}
+
+.alist{
+    .at-list__item-container {
+        flex-direction:row-reverse;
+    }
+}

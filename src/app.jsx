@@ -1,31 +1,24 @@
-import { Component } from 'react'
+import React from 'react'
 import { Provider } from 'mobx-react'
 
 import counterStore from './store/counter'
 
 import './app.scss'
+import 'taro-ui/dist/style/index.scss' // 全局引入一次即可
 
 const store = {
   counterStore
 }
 
-class App extends Component {
-  componentDidMount () {}
+const App = props => {
 
-  componentDidShow () {}
+  // this.props.children 就是要渲染的页面 
+  return (
+    <Provider store={store}>
+      {props.children}
+    </Provider>
+  )
 
-  componentDidHide () {}
-
-  componentDidCatchError () {}
-
-  // this.props.children 就是要渲染的页面
-  render () {
-    return (
-      <Provider store={store}>
-        {this.props.children}
-      </Provider>
-    )
-  }
 }
 
 export default App

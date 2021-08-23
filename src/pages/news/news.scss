@@ -19,3 +19,24 @@
         flex-direction:row-reverse;
     }
 }
+/* 社区列表*/
+
+.com-list{
+    .at-list__item-container{
+        flex-wrap: wrap;
+    }
+    .item-content{
+        flex:none;
+        width: 440px;
+    }
+    .at-list__item-extra{
+        max-width: 750px;
+        text-align:left;
+        .item-extra__info{
+            color: black;
+            padding: 10px 20px 0px;
+            white-space:normal;
+            word-break:break-all;
+        }
+    }
+}

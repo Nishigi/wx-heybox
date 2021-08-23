@@ -25,16 +25,13 @@ export default () => {
         { title: '单机热游' }
     ]
     var recom = [
-        {
-            image: PCgame,
-            iconInfo: 1
-        },
-        { image: pretty },
-        { image: riceday },
-        { image: sign },
-        { image: double },
-        { image: genshin },
-        { image: Switch }
+        { image: PCgame, iconInfo: 'PC游戏' },
+        { image: pretty, iconInfo: '赛马娘' },
+        { image: riceday, iconInfo: '小饭盒' },
+        { image: sign, iconInfo: '刺客信条' },
+        { image: double, iconInfo: '战双帕弥什' },
+        { image: genshin, iconInfo: '原神' },
+        { image: Switch, iconInfo: '主机游戏' }
     ]
     var boxfriend = [
         { image: PCgame },
@@ -81,24 +78,24 @@ export default () => {
                         hasBorder={false}
                         data={recom}
                         onClick={e => {
-                            if (e.iconInfo === 1) {
-                                Taro.navigateTo({
-                                    url: '/pages/community-info/community-info',
-                                    events: {
-                                        // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-                                        acceptDataFromOpenedPage: function (data) {
-                                            console.log(data)
-                                        },
-                                        someEvent: function (data) {
-                                            console.log(data)
-                                        }
+                            console.log(e.iconInfo);
+                            Taro.navigateTo({
+                                url: '/pages/community-info/community-info?title=' + e.iconInfo,
+                                events: {
+                                    // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+                                    acceptDataFromOpenedPage: function (data) {
+                                        console.log(data)
                                     },
-                                    success: function (res) {
-                                        // 通过eventChannel向被打开页面传送数据
-                                        res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
+                                    someEvent: function (data) {
+                                        console.log(data)
                                     }
-                                })
-                            }
+                                },
+                                success: function (res) {
+                                    // 通过eventChannel向被打开页面传送数据
+                                    res.eventChannel.emit('acceptDataFromOpenerPage', { data: 'test' })
+                                }
+                            })
+
                         }}
                     />
 

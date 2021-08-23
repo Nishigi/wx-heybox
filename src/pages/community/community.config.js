@@ -1,3 +1,3 @@
 export default {
-    navigationBarTitleText: '社区'
+    navigationBarTitleText: '小黑盒'
 }

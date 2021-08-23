@@ -1,3 +1,3 @@
 export default {
-    navigationBarTitleText: '新闻'
+    navigationBarTitleText: '小黑盒'
 }

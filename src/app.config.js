@@ -1,10 +1,10 @@
 export default {
   pages: [
+    'pages/article/article',
     'pages/news/news',
     'pages/index/index',
     'pages/community/community',
     'pages/community-info/community-info',
-    'pages/article/article'
   ],
   window: {
     backgroundTextStyle: 'light',

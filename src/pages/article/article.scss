@@ -1,3 +1,27 @@
-.at-tabs__header{
-    width:250px;
+.at-article{
+    .at-avatar--circle {
+        margin-left: 30rpx;
+    }
+    .at-row {
+        align-items: center;
+    }
+    .at-tabs__header {
+        width:150px;
+        margin-left:15px;
+        .at-tabs__item--active {
+            color:black;
+        }
+        .at-tabs__item {
+            padding:15px 0;
+            font-size: 35px;
+        }
+    }
+    .at-article__content{ 
+            border-bottom: 10rpx solid #F0F0F0;
+            padding-bottom: 20px;
+    }
+    .at-tabs__item-underline {
+    background-color: #000;  
+    height: 5px;  
+    }
 }
